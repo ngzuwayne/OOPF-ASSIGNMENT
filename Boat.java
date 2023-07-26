@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import Main;
 
 public class Boat {
     static String[][] array = new String[3][201];
@@ -14,22 +15,13 @@ public class Boat {
 
     public static void play (String boat, int position, String opp) {
 
-        Player player1 = new Player();
-        Player player2 = new Player();
-
-        player1.setScore(a);
-        player2.setScore(a);
 
         //change to main remove if'
 
         if (a == 0) {
             Scanner naming = new Scanner(System.in);
 
-            System.out.print("Enter Player 1 name: ");
-            name1 = naming.nextLine();
 
-            System.out.print("Enter Player 2 name: ");
-            name2 = naming.nextLine();
         }
 
         a = a + 1;
@@ -54,12 +46,14 @@ public class Boat {
 
             System.out.println();
             river();
-            System.out.println("Player " + boat + " has won!!");
-            if (boat == "1") {
-                System.out.println(name1 + player1);
+            if (boat == "1"){
+                System.out.println("Player " + boat + " has won!!");
+                System.out.println(name1 + player1.getName);
             } else {
-                System.out.println(name2 + player2);
+                System.out.println("Player " + opp + " has won!!");
+                System.out.println(name2 + player);
             }
+
             System.exit(0);
 
         } else {
@@ -78,58 +72,22 @@ public class Boat {
                 position -= backwardpush;
                 if (collide()) {
                     array[1][position] = boat;
-                }
-                    else if (position < 0) {
-                        position = 0;
-                        collide();
-                        System.out.println("BUT YOU HAVE BEEN PUSHED BACK BY A TRAP (-" + backwardpush / 2 + ") !!" + " Boat 1 is at box 1 as well!!");
-                            array[1][steps + backwardpush - numbers] = " ";
-                        } else {
-                            steps = 0;
-                            array[1][steps] = "1";
-                            System.out.println("BUT YOU HAVE BEEN PUSHED BACK BY A TRAP (-" + backwardpush / 2 + ") !!" + " Boat 1 is at box 1 !!");
-                        }
-                    } else {
-                        if (array[1][steps + backwardpush - numbers] == "½") {
-                            array[1][steps + backwardpush - numbers] = "2";
-                        } else {
-                            array[1][steps + backwardpush - numbers] = " ";
-                        }
-
-                        if (array[1][steps] == "2") {
-                            array[1][steps] = "½";
-                            array[1][steps + backwardpush - numbers] = " ";
-                        } else {
-                            array[1][steps] = piece;
-                            System.out.println("BUT YOU HAVE BEEN PUSHED BACK BY A TRAP (-" + backwardpush / 2 + ") !!" + " Boat 1 is at box " + ((steps / 2) + 1) + " !!");
-                        }
-                    }
-
-
-                    if (boat == "1") {
-
-                        if (array[1][steps] == "2") {
-                            array[1][steps] = "½";
-                            array[1][steps - numbers] = " ";
-                            System.out.println("Boat 1 is at box " + ((steps / 2) + 1) + " as well!!");
-                        } else {
-                            array[1][steps] = piece;
-                            System.out.println("Boat 1 is at box " + ((steps / 2) + 1) + " !!");
-                            if (array[1][steps - numbers] == "½") {
-                                array[1][steps - numbers] = "2";
-                            } else {
-                                array[1][steps - numbers] = " ";
-                            }
-                        }
-
-                    }
-                }
+                } else if (position < 0) {
+                    position = 0;
+                    collide();
+                    System.out.println("BUT YOU HAVE BEEN PUSHED BACK BY A TRAP (-" + backwardpush / 2 + ") !!" + " Boat 1 is at box 1 as well!!");
                 }
 
-                System.out.println();
-                river();
+            } else if (collide()) {
+                array[1][position] = "½";
+                System.out.println("Boat " + boat + " is at box " + ((steps / 2) + 1) + " as well!!");
+            } else {
+                array[1][position] = boat;
+                System.out.println("Boat " + boat + " is at box " + ((steps / 2) + 1) + " !!");
 
             }
+        System.out.println();
+        river();
         }
     }
 

@@ -6,12 +6,10 @@ public class Player {
     private String name;
 
 
-    Player(int score, String name){
-        setScore(score);
+    Player(String name){
         position = 0;
         this.name = name;
     }
-
     public String toString() {
         return String.format(" won with " + score / 2 + " moves!!");
     }
@@ -19,10 +17,18 @@ public class Player {
     public void setScore(int score) {this.score = score;}
     public int getScore(){return this.score;}
 
-    public void setPieceposition(int pieceposition) {
-        this.position = pieceposition;
+    public void setPosition(int position) {
+        this.position = position;
     }
-    public int getPieceposition() {
+    public int getPosition() {
         return position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
