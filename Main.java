@@ -3,13 +3,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        String[][] array = new String[3][201];
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter Player 1 name: ");
+        
+        System.out.print("Welcome to Boat Race!");
+        System.out.print("Please enter Player 1's name: ");
         String name1 = input.nextLine();
 
-        System.out.print("Enter Player 2 name: ");
+        System.out.print("Please enter Player 2's name: ");
         String name2 = input.nextLine();
+        
         Player player1 = new Player(name1);
         Player player2 = new Player(name2);
 

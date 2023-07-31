@@ -10,6 +10,11 @@ public class Player {
         position = 0;
         this.name = name;
     }
+    
+    
+    Player player1 = new Player(name1);
+    Player player2 = new Player(name2);
+    
     public String toString() {
         return String.format(" won with " + score / 2 + " moves!!");
     }
