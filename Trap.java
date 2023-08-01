@@ -4,6 +4,7 @@ public class Trap {
     private static Random random = new Random();
     private static int trapno;
     private static String difficulty;
+    private static int backwardpush;
     
     public static void PrintTraps() {
         difficulty = River.getDifficulty();
@@ -30,7 +31,14 @@ public class Trap {
     }
     
     public static int PushedBackwardTraps(){
-        int backwardpush = (random.nextInt(9) + 5) * 2;
+        difficulty = River.getDifficulty();
+        if (difficulty == "Hard"){
+            backwardpush = (random.nextInt(10,15) * 2);
+        } else if (difficulty == "Medium"){
+            backwardpush = (random.nextInt(5,10) * 2);
+        } else if (difficulty == "Easy"){
+            backwardpush = (random.nextInt(0,5) * 2);
+        }
         return backwardpush;
     }
 }
