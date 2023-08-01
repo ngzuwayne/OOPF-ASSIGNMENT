@@ -50,11 +50,9 @@ public class River {
 
     public static void setDifficulty(String difficulty) {difficulty = difficulty;}
     public static String getDifficulty() {return difficulty;}
-    
 	public static void setRiver (int position, String piece) {
 		array[1][position] = piece;
 	}
-	
 	public static String getRiver (int position) {
 		return array[1][position]; 
 	}
