@@ -12,10 +12,13 @@ public class Boat {
 
 
         int roll = RollTheDice();
-        position += roll;
+        int initialPosition = position;
+        position +=roll;
         System.out.printf("\nYou rolled a %d ! ", roll / 2);
-
-        if (position >= 198 || position >= 198) {
+        
+        //do (River.getRiver(position)== "C" || River.getRiver(position)== "#") {}
+        
+        if (position >= 198) {
             River.setRiver(198, boat);
             River.setRiver(position - roll, " ");
 
@@ -27,7 +30,43 @@ public class Boat {
             System.exit(0);
 
         } else {
-            if (River.getRiver(position) == "C") {
+        	if (River.getRiver(initialPosition) == boat) {
+        		River.setRiver(initialPosition, " ");
+        	} else {
+        		River.setRiver(initialPosition, opp);
+        	}
+        	
+        	if (River.getRiver(position) == "C") {
+        		River.setRiver(position, " ");
+                int forwardpush = Current.PushedForwardCurrents();
+                position += forwardpush;
+                
+                if (River.getRiver(position) == opp) {
+                	River.setRiver(position, "½");
+                } else if (River.getRiver(position) == " ") {
+                	River.setRiver(position, boat);
+                } else {
+                	//testing
+                }
+                System.out.println("AND YOU HAVE BEEN PUSHED FORWARD BY A CURRENT (+" + forwardpush / 2 + ") !!" + " Boat 1 is at box " + ((position / 2) + 1) + " !!");
+                
+        	} else if (River.getRiver(position) == "#") {
+        		if (position < 0) {
+        			position = 0;
+        		}
+        		River.setRiver(position, " ");
+        		int backwardpush = Trap.PushedBackwardTraps();
+        		position -= backwardpush;
+        		placement(position, boat, opp);
+        		// the <0 part
+        		System.out.println("BUT YOU HAVE BEEN PUSHED BACK BY A TRAP (-" + backwardpush / 2 + ") !!" + " Boat 1 is at box 1 as well!!");
+        		
+        	} else {
+        		placement(position, boat, opp);
+        		
+        	}
+                
+            /* if (River.getRiver(position) == "C") {
 
                 int forwardpush = Current.PushedForwardCurrents();
                 position += forwardpush;
@@ -46,13 +85,15 @@ public class Boat {
                 int tempposition = position;
                 position -= backwardpush;
                 
-                if (collide(position, -backwardpush, opp)) { //idk if the - here works
+                if (position < 0) {
+                	position = 0;
+                }
+                
+                if (collide(tempposition, 0, opp)) { //idk if the - here works
                 	River.setRiver(position, boat);
                 	
-                } else if ((position < 0) && (collide(tempposition, 0, opp))) {
-                    if (collide(position, 0, opp)) {
-                        River.setRiver(position, boat);
-                    }
+                } else {
+                        River.setRiver(position, "½");
                 }
                 System.out.println("BUT YOU HAVE BEEN PUSHED BACK BY A TRAP (-" + backwardpush / 2 + ") !!" + " Boat 1 is at box 1 as well!!");
 
@@ -64,14 +105,26 @@ public class Boat {
             	River.setRiver(position - roll, " ");
             	System.out.println("Boat " + boat + " is at box " + ((position / 2) + 1) + " as well!!");
             }
+            */
         System.out.println();
         River.printRiver();
         }
 		return position;
+		
     }
 
-    public static boolean collide(int position, int roll, String opp) {
-        if ((River.getRiver(position - roll)) == "½") {
+    public static void placement(int position, String boat, String opp) {
+        if (River.getRiver(position) == opp) {
+        	River.setRiver(position, "½");
+        	System.out.println("Boat " + boat + " is at box " + ((position / 2) + 1) + " as well!!");
+        	
+        } else if (River.getRiver(position) == " ") {
+        	River.setRiver(position, boat);
+        	System.out.println("Boat " + boat + " is at box " + ((position / 2) + 1) + " !!");
+        } else {
+        	//testing
+        }
+        /* if ((River.getRiver(position - roll)) == "½") {
         	River.setRiver(position - roll, opp);
             return true;
         } else if (River.getRiver(position) == opp){
@@ -80,7 +133,7 @@ public class Boat {
         } else {
         	River.setRiver(position - roll, " ");
             return true;
-        }
+        }*/
     }
 
     public static int RollTheDice(){
