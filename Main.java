@@ -6,13 +6,14 @@ public class Main {
         Scanner input = new Scanner(System.in);
         // debatable if needed| River river = new River();
         
-        System.out.println("Welcome to Boat Race!");
+        System.out.println("Welcome to Boat Race!\n");
+
+        River.findDifficulty();
+
         System.out.print("Please enter Player 1's name: ");
         String name1 = input.nextLine();
         System.out.print("Please enter Player 2's name: ");
         String name2 = input.nextLine();
-
-        River.findDifficulty();
         
         Player player1 = new Player(name1);
         Player player2 = new Player(name2);

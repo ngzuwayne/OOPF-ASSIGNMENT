@@ -7,15 +7,15 @@ public class Current {
     
     public static void PrintCurrents() {
         difficulty = River.getDifficulty();
-        if (difficulty == "HARD"){
-            currentno = random.nextInt(3, 7);
-        } else if (difficulty == "MEDIUM"){
+        if (difficulty == "Hard"){
+            currentno = random.nextInt(3, 6);
+        } else if (difficulty == "Medium"){
             currentno = random.nextInt(7, 10);
-        } else if (difficulty == "EASY"){
-            currentno = random.nextInt(10, 13);
+        } else if (difficulty == "Easy"){
+            currentno = random.nextInt(11, 14);
         }
-
-        for (int i = 0; i < currentno; i++) {
+        int a = currentno;
+        for (int i = 0; i < a; i++) {
             int b = WhereCurrents();
             River.setRiver(b, "C");
         }

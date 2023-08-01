@@ -28,7 +28,7 @@ public class River {
     public static void findDifficulty() {
         Scanner input = new Scanner(System.in);
         while (true) {
-            System.out.print("Select a difficulty (Easy, Normal, Hard): ");
+            System.out.print("Select a difficulty level (Easy, Normal, Hard): ");
             difficulty = input.next().toUpperCase();
             if (difficulty.equals("EASY")) {
                 difficulty = "Easy";

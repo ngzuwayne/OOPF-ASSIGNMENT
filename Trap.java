@@ -7,14 +7,15 @@ public class Trap {
     
     public static void PrintTraps() {
         difficulty = River.getDifficulty();
-        if (difficulty == "HARD"){
-            trapno = random.nextInt(10, 13);
-        } else if (difficulty == "MEDIUM"){
+        if (difficulty == "Hard"){
+            trapno = random.nextInt(11, 14);
+        } else if (difficulty == "Medium"){
             trapno = random.nextInt(7, 10);
-        } else if (difficulty == "EASY"){
-            trapno = random.nextInt(4, 7);
+        } else if (difficulty == "Easy"){
+            trapno = random.nextInt(3, 6);
         }
-        for (int i = 0; i < trapno; i++) {
+        int a = trapno;
+        for (int i = 0; i < a; i++) {
             int b = WhereTraps();
             River.setRiver(b, "#");
         }
