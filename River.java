@@ -24,12 +24,11 @@ public class River {
             System.out.println();
         }
     }
-    public static String setDifficulty() {
+    public static void setDifficulty() {
         Scanner input = new Scanner(System.in);
-        String difficulty;
         while (true) {
             System.out.print("Select a difficulty (Easy, Normal, Hard): ");
-            difficulty = input.next().toUpperCase();
+            String difficulty = input.next().toUpperCase();
 
             if (difficulty.equals("EASY")) {
                 difficulty = "Easy";
@@ -44,8 +43,8 @@ public class River {
                 System.out.println("Choose again !!");
             }
         }
-        return difficulty;
     }
+    public static String getDifficulty(String difficulty){return difficulty;}
     
 	public static void setRiver (int position, String piece) {
 		array[1][position] = piece;
