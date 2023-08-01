@@ -6,6 +6,7 @@ public class Current {
     private static Random random = new Random();
     
     public static void PrintCurrents() {
+        difficulty = River.getDifficulty();
         if (difficulty == "HARD"){
             currentno = random.nextInt(3, 7);
         } else if (difficulty == "MEDIUM"){
@@ -13,6 +14,7 @@ public class Current {
         } else if (difficulty == "EASY"){
             currentno = random.nextInt(10, 13);
         }
+
         for (int i = 0; i < currentno; i++) {
             int b = WhereCurrents();
             River.setRiver(b, "C");

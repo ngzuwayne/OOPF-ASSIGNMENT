@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class River {
     private static String[][] array = new String[3][200];
+    private static String difficulty;
 	
 	public River() {
         for (int i = 0; i < 200; i += 2) {
@@ -24,27 +25,31 @@ public class River {
             System.out.println();
         }
     }
-    public static void setDifficulty() {
+    public static void findDifficulty() {
         Scanner input = new Scanner(System.in);
         while (true) {
             System.out.print("Select a difficulty (Easy, Normal, Hard): ");
-            String difficulty = input.next().toUpperCase();
-
+            difficulty = input.next().toUpperCase();
             if (difficulty.equals("EASY")) {
                 difficulty = "Easy";
+                setDifficulty(difficulty);
                 break;
             } else if (difficulty.equals("MEDIUM")) {
                 difficulty = "Medium";
+                setDifficulty(difficulty);
                 break;
             } else if (difficulty.equals("HARD")) {
                 difficulty = "Hard";
+                setDifficulty(difficulty);
                 break;
             } else {
                 System.out.println("Choose again !!");
             }
         }
     }
-    public static String getDifficulty(String difficulty){return difficulty;}
+
+    public static void setDifficulty(String difficulty){difficulty = difficulty;}
+    public static String getDifficulty(){return difficulty;}
     
 	public static void setRiver (int position, String piece) {
 		array[1][position] = piece;

@@ -12,7 +12,7 @@ public class Main {
         System.out.print("Please enter Player 2's name: ");
         String name2 = input.nextLine();
 
-        River.setDifficulty();
+        River.findDifficulty();
         
         Player player1 = new Player(name1);
         Player player2 = new Player(name2);

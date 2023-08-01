@@ -6,7 +6,7 @@ public class Trap {
     private static String difficulty;
     
     public static void PrintTraps() {
-        difficulty = River.getDifficulty(difficulty);
+        difficulty = River.getDifficulty();
         if (difficulty == "HARD"){
             trapno = random.nextInt(10, 13);
         } else if (difficulty == "MEDIUM"){
