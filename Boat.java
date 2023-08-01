@@ -93,7 +93,7 @@ public class Boat {
                 	River.setRiver(position, boat);
                 	
                 } else {
-                        River.setRiver(position, "½");
+                    River.setRiver(position, "½");
                 }
                 System.out.println("BUT YOU HAVE BEEN PUSHED BACK BY A TRAP (-" + backwardpush / 2 + ") !!" + " Boat 1 is at box 1 as well!!");
 

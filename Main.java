@@ -1,7 +1,11 @@
+import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Score{
     public static void main(String[] args) {
+
+        createFile();
+
 
         Scanner input = new Scanner(System.in);
         // debatable if needed| River river = new River();
