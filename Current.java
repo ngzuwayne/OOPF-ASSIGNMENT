@@ -33,7 +33,7 @@ public class Current {
     public static int PushedForwardCurrents(){
         difficulty = River.getDifficulty();
         if (difficulty == "Hard"){
-            forwardpush = (random.nextInt(0,5) * 2);
+            forwardpush = (random.nextInt(1,5) * 2);
         } else if (difficulty == "Medium"){
             forwardpush = (random.nextInt(5,10) * 2);
         } else if (difficulty == "Easy"){

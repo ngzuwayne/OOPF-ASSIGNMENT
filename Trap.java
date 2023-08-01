@@ -37,7 +37,7 @@ public class Trap {
         } else if (difficulty == "Medium"){
             backwardpush = (random.nextInt(5,10) * 2);
         } else if (difficulty == "Easy"){
-            backwardpush = (random.nextInt(0,5) * 2);
+            backwardpush = (random.nextInt(1,5) * 2);
         }
         return backwardpush;
     }
