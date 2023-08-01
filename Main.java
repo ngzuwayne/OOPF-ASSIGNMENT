@@ -9,10 +9,9 @@ public class Main {
         System.out.println("Welcome to Boat Race!");
         System.out.print("Please enter Player 1's name: ");
         String name1 = input.nextLine();
-
         System.out.print("Please enter Player 2's name: ");
         String name2 = input.nextLine();
-        
+
         River.setDifficulty();
         
         Player player1 = new Player(name1);
