@@ -3,6 +3,7 @@ import java.util.*;
 public class Current {
     private static int currentno;
     private static String difficulty;
+    private static int forwardpush;
     private static Random random = new Random();
     
     public static void PrintCurrents() {
@@ -30,7 +31,14 @@ public class Current {
     }
     
     public static int PushedForwardCurrents(){
-        int forwardpush = (random.nextInt(9) + 5) * 2;
+        difficulty = River.getDifficulty();
+        if (difficulty == "Hard"){
+            forwardpush = (random.nextInt(0,5) * 2);
+        } else if (difficulty == "Medium"){
+            forwardpush = (random.nextInt(5,10) * 2);
+        } else if (difficulty == "Easy"){
+            forwardpush = (random.nextInt(10,15) * 2);
+        }
         return forwardpush;
     }
 }
