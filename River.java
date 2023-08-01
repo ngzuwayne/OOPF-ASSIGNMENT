@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class River {
-	private static String[][] array = new String[3][200];
+    private static String[][] array = new String[3][200];
 	
 	public River() {
         for (int i = 0; i < 200; i += 2) {
@@ -33,8 +33,8 @@ public class River {
             if (difficulty.equals("EASY")) {
                 difficulty = "Easy";
                 break;
-            } else if (difficulty.equals("NORMAL")) {
-                difficulty = "Normal";
+            } else if (difficulty.equals("MEDIUM")) {
+                difficulty = "Medium";
                 break;
             } else if (difficulty.equals("HARD")) {
                 difficulty = "Hard";

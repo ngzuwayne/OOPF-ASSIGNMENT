@@ -1,10 +1,18 @@
 import java.util.*;
 
 public class Current {
+    private static int currentno;
+    private static String difficulty;
     private static Random random = new Random();
     
     public static void PrintCurrents() {
-        int currentno = random.nextInt(7, 10);
+        if (difficulty == "HARD"){
+            currentno = random.nextInt(3, 7);
+        } else if (difficulty == "MEDIUM"){
+            currentno = random.nextInt(7, 10);
+        } else if (difficulty == "EASY"){
+            currentno = random.nextInt(10, 13);
+        }
         for (int i = 0; i < currentno; i++) {
             int b = WhereCurrents();
             River.setRiver(b, "C");
