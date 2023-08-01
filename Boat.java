@@ -70,6 +70,7 @@ public class Boat {
 		return position;
     }
 
+
     public static boolean collide(int position, int roll, String opp) {
         if ((River.getRiver(position - roll)) == "½") {
         	River.setRiver(position - roll, opp);
