@@ -4,7 +4,6 @@ public class Trap {
     private static Random random = new Random();
     
     public static void PrintTraps() {
-        String difficulty = River.setDifficulty();
         int trapno = random.nextInt(7, 10);
         for (int i = 0; i < trapno; i++) {
             int b = WhereTraps();
