@@ -65,8 +65,8 @@ public class Boat {
         		placement(position, boat, opp);
         		
         	}
-                
-            /* if (River.getRiver(position) == "C") {
+                /*
+            if (River.getRiver(position) == "C") {
 
                 int forwardpush = Current.PushedForwardCurrents();
                 position += forwardpush;
