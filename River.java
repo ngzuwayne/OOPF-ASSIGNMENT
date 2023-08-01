@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class River {
 	private static String[][] array = new String[3][200];
 	
@@ -21,6 +23,28 @@ public class River {
             }
             System.out.println();
         }
+    }
+    public static String setDifficulty() {
+        Scanner input = new Scanner(System.in);
+        String difficulty;
+        while (true) {
+            System.out.print("Select a difficulty (Easy, Normal, Hard): ");
+            difficulty = input.next().toUpperCase();
+
+            if (difficulty.equals("EASY")) {
+                difficulty = "Easy";
+                break;
+            } else if (difficulty.equals("NORMAL")) {
+                difficulty = "Normal";
+                break;
+            } else if (difficulty.equals("HARD")) {
+                difficulty = "Hard";
+                break;
+            } else {
+                System.out.println("Choose again !!");
+            }
+        }
+        return difficulty;
     }
     
 	public static void setRiver (int position, String piece) {
