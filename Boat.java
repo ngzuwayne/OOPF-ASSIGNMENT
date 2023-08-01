@@ -124,6 +124,7 @@ public class Boat {
         } else {
         	//testing
         }
+        
         /* if ((River.getRiver(position - roll)) == "½") {
         	River.setRiver(position - roll, opp);
             return true;

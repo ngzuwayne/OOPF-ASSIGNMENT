@@ -1,11 +1,21 @@
 import java.util.*;
 
 public class Current {
+    private static int currentno;
+    private static String difficulty;
     private static Random random = new Random();
     
     public static void PrintCurrents() {
-        int currentno = random.nextInt(7, 10);
-        for (int i = 0; i < currentno; i++) {
+        difficulty = River.getDifficulty();
+        if (difficulty == "Hard"){
+            currentno = random.nextInt(3, 6);
+        } else if (difficulty == "Medium"){
+            currentno = random.nextInt(7, 10);
+        } else if (difficulty == "Easy"){
+            currentno = random.nextInt(11, 14);
+        }
+        int a = currentno;
+        for (int i = 0; i < a; i++) {
             int b = WhereCurrents();
             River.setRiver(b, "C");
         }

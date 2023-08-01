@@ -2,10 +2,20 @@ import java.util.Random;
 
 public class Trap {
     private static Random random = new Random();
+    private static int trapno;
+    private static String difficulty;
     
     public static void PrintTraps() {
-        int trapno = random.nextInt(7, 10);
-        for (int i = 0; i < trapno; i++) {
+        difficulty = River.getDifficulty();
+        if (difficulty == "Hard"){
+            trapno = random.nextInt(11, 14);
+        } else if (difficulty == "Medium"){
+            trapno = random.nextInt(7, 10);
+        } else if (difficulty == "Easy"){
+            trapno = random.nextInt(3, 6);
+        }
+        int a = trapno;
+        for (int i = 0; i < a; i++) {
             int b = WhereTraps();
             River.setRiver(b, "#");
         }
@@ -14,7 +24,7 @@ public class Trap {
     public static int WhereTraps() {
         int b = 1;
         while ((b % 2) != 0) {
-            b = random.nextInt(10, 199);
+            b = random.nextInt(10, 181);
         }
         return b;
     }
