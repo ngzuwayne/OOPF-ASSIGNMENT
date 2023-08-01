@@ -24,7 +24,7 @@ public class Trap {
     public static int WhereTraps() {
         int b = 1;
         while ((b % 2) != 0) {
-            b = random.nextInt(10, 199);
+            b = random.nextInt(10, 181);
         }
         return b;
     }
