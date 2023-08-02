@@ -10,7 +10,8 @@ public class Main{
         Score.createFileIfNotExists("TopScore.txt");
 
         Scanner input = new Scanner(System.in);
-        
+
+        Score.displayScore();
         System.out.println("Welcome to Boat Race!\n");
 
         River.findDifficulty();

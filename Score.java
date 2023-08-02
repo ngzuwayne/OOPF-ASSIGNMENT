@@ -1,12 +1,8 @@
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.File;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.*;
 import java.util.Collections;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 public class Score {
 	
@@ -58,17 +54,28 @@ public class Score {
     }
 
 
-    public void displayScore(){
-        System.out.println("-------------------------------");
-        System.out.println("| SCORE | PLAYER | DIFFICULTY |");
-        System.out.println("-------------------------------");
-        
+    public static void displayScore() throws FileNotFoundException {
+        try {
+            System.out.println("Top 5 Scores:");
+            System.out.println("---------------------------");
+            System.out.println("Score | Player | Difficulty");
+            System.out.println("---------------------------");
 
+            File file = new File("TopScore.txt");
+            Scanner scan = new Scanner(file);
+
+            for (int i = 0; i < 5; i++) {
+                System.out.println(scan.nextLine());
+            }
+            System.out.println();
+        } catch (NoSuchElementException e){
+            System.out.println();
+        }
     }
 
     public static void endGame(int number, String name, int score) throws IOException {
         System.out.printf("Player %d, %s has won with %d moves !!\n",number, name, score);
-        writeTextToFile("TopScore.txt", Integer.toString(score) + " " +name + " " + River.getDifficulty() + "\n");
+        writeTextToFile("TopScore.txt", Integer.toString(score) + " | " +name + " | " + River.getDifficulty() + "\n");
         SortContentInFile();
         System.exit(0);
     }
