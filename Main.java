@@ -33,11 +33,8 @@ public class Main{
             player1.setName(name1);
             player1.setPosition(Boat.play("1", player1.getPosition(), "2"));
             player1.setScore(score);
-<<<<<<< HEAD
             player2.setName(name2);
-=======
             if (player1.getPosition() == 198) {break;}
->>>>>>> 36ae1338824541e8dfa370861a797ddf2f009d03
             player2.setPosition(Boat.play("2", player2.getPosition(), "1"));
             player2.setScore(score);
             score = score + 1;
