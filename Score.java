@@ -22,7 +22,7 @@ public class Score {
 
     public static void endGame(int number, String name, int score) throws IOException {
         System.out.printf("Player %d, %s has won with %d moves !!\n",number, name, score);
-        writeTextToFile("scores.txt", name + " " + Integer.toString(score) + "\n");
+        writeTextToFile("scores.txt", name + " " + Integer.toString(score) + " " + River.getDifficulty() + "\n");
         System.exit(0);
     }
 
