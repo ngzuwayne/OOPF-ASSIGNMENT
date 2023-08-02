@@ -26,18 +26,21 @@ public class Main{
         Trap.PrintTraps();
         River.printRiver();
 
-        while ((River.getRiver(198)) != "1" || (River.getRiver(198)) != "2") {
+        while (River.getRiver(198) != "1" && River.getRiver(198) != "2") {
         	
         	Player.setScore(1);
             player1.setPosition(Boat.play("1", player1.getPosition(), "2"));
             
             if (player1.getPosition() == 198) {
-            	winner = player1.getName();
             	break; 
             }
-            player2.setPosition(Boat.play("2", player2.getPosition(), "1")); 
-            winner = player2.getName();
+            player2.setPosition(Boat.play("2", player2.getPosition(), "1"));
         }
-        Score.endGame(winner, Player.getScore());
+        
+        if (River.getRiver(198) == "1") {
+        	Score.endGame(1, player1.getName(), Player.getScore());
+        } else {
+        	Score.endGame(2, player2.getName(), Player.getScore());
+        }
     }
 }

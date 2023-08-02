@@ -20,9 +20,9 @@ public class Score {
 
     }
 
-    public static void endGame(String name, int score) throws IOException {
-        System.out.println("Player 1 " + name + " has won with " + (score + 1) + " moves !!");
-        writeTextToFile("scores.txt", name + " " + Integer.toString(score + 1) + "\n");
+    public static void endGame(int number, String name, int score) throws IOException {
+        System.out.printf("Player %d, %s has won with %d moves !!\n",number, name, score);
+        writeTextToFile("scores.txt", name + " " + Integer.toString(score) + "\n");
         System.exit(0);
     }
 
