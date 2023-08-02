@@ -29,18 +29,9 @@ public class Boat extends Main{
     	}
     	
     	System.out.println();
-        River.printRiver();
 
         // still thinking how to represent names System.out.printf("Player %s, %s has won!!\n", boat, playername);
-        if (boat == "1"){
-            System.out.println("Player 1 has won with " + (Player.getScore() + 1) + " moves !!");
-            Score.writeTextToFile(Integer.toString(Player.getScore() + 1));
-        } else if (boat == "2") {
-            System.out.println("Player 2 has won with " + (Player.getScore()) + " moves !!");
-            Score.writeTextToFile(Integer.toString(Player.getScore()));
-        }
-        System.exit(0);
-    	
+
     	do {
         	if (River.getRiver(position) == "C") {
                 int forwardpush = Current.PushedForwardCurrents();
@@ -63,6 +54,14 @@ public class Boat extends Main{
     	
     	if (position > 198) {
     		position = 198;
+            if (boat == "1"){
+                System.out.println("Player 1 has won with " + (Player.getScore() + 1) + " moves !!");
+                Score.writeTextToFile(Integer.toString(Player.getScore() + 1));
+            } else if (boat == "2") {
+                System.out.println("Player 2 has won with " + (Player.getScore()) + " moves !!");
+                Score.writeTextToFile(Integer.toString(Player.getScore()));
+            }
+            System.exit(0);
     	}
     	placement(position, boat, opp);
         System.out.println();
