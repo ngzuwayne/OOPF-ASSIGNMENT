@@ -7,7 +7,7 @@ public class Main{
 
         String winner = null;
 
-        Score.createFileIfNotExists("scores.txt");
+        Score.createFileIfNotExists("TopScore.txt");
 
         Scanner input = new Scanner(System.in);
         

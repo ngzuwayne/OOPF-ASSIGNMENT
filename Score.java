@@ -29,14 +29,14 @@ public class Score {
         BufferedWriter writer = null;
         ArrayList<String> lines = new ArrayList<String>();
         try {
-            reader = new BufferedReader(new FileReader("scores.txt"));
+            reader = new BufferedReader(new FileReader("TopScore.txt"));
             String currentLine = reader.readLine();
             while (currentLine != null){
                 lines.add(currentLine);
                 currentLine = reader.readLine();
             }
             Collections.sort(lines);
-            writer = new BufferedWriter(new FileWriter("scores.txt"));
+            writer = new BufferedWriter(new FileWriter("TopScore.txt"));
             for (String line : lines) {
                 writer.write(line);
                 writer.newLine();
@@ -57,9 +57,18 @@ public class Score {
         }
     }
 
+
+    public void displayScore(){
+        System.out.println("-------------------------------");
+        System.out.println("| SCORE | PLAYER | DIFFICULTY |");
+        System.out.println("-------------------------------");
+        
+
+    }
+
     public static void endGame(int number, String name, int score) throws IOException {
         System.out.printf("Player %d, %s has won with %d moves !!\n",number, name, score);
-        writeTextToFile("scores.txt", Integer.toString(score) + " " +name + " " + River.getDifficulty() + "\n");
+        writeTextToFile("TopScore.txt", Integer.toString(score) + " " +name + " " + River.getDifficulty() + "\n");
         SortContentInFile();
         System.exit(0);
     }
