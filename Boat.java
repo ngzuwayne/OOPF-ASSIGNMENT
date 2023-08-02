@@ -62,10 +62,7 @@ public class Boat {
                 System.out.println("Player 2 " + Player.getName() + " has won with " + (Player.getScore()) + " moves !!");
                 Score.writeTextToFile("scores.txt", Player.getName() + " " + Integer.toString(Player.getScore()) + "\n");
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> 36ae1338824541e8dfa370861a797ddf2f009d03
             System.exit(0);
     	}
     	placement(position, boat, opp);
