@@ -29,7 +29,9 @@ public class Main extends Score{
 
         while ((River.getRiver(198)) != "1" || (River.getRiver(198)) != "2") {
             player1.setPosition(Boat.play("1", player1.getPosition(), "2"));
+            if (player1.getPosition() == 198) {break;}
             player2.setPosition(Boat.play("2", player2.getPosition(), "1"));
         }
+        // I was thinking this is where the "YOU"VE WON" statement should be placed?? or should it be in the river/player class
     }
 }
