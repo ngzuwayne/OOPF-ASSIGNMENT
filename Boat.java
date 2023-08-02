@@ -16,18 +16,45 @@ public class Boat {
         int roll = RollTheDice();
         int initialPosition = position;
         position +=roll;
+    	if (position > 198) {
+    		position = 198;
+    	}
         System.out.printf("\nYou rolled a %d ! ", roll / 2);
-        
-        //do (River.getRiver(position)== "C" || River.getRiver(position)== "#") {}
-        
-        if (position >= 198) {
-            River.setRiver(198, boat);
-            River.setRiver(position - roll, " ");
+       
+        // still thinking how to represent names System.out.printf("Player %s, %s has won!!\n", boat, playername);
 
-            System.out.println();
-            River.printRiver();
+    	if (River.getRiver(initialPosition) == boat) {
+    		River.setRiver(initialPosition, " ");
+    	} else {
+    		River.setRiver(initialPosition, opp);
+    	}
+    	
+    	System.out.println();
 
-            // still thinking how to represent names System.out.printf("Player %s, %s has won!!\n", boat, playername);
+        // still thinking how to represent names System.out.printf("Player %s, %s has won!!\n", boat, playername);
+
+    	do {
+        	if (River.getRiver(position) == "C") {
+                int forwardpush = Current.PushedForwardCurrents();
+                position += forwardpush;
+                if (position > 198) {
+        			position = 198;
+        		}           
+                System.out.println("AND YOU HAVE BEEN PUSHED FORWARD BY A CURRENT (+" + forwardpush / 2 + ") !!");
+                
+        	} else if (River.getRiver(position) == "#") {
+        		int backwardpush = Trap.PushedBackwardTraps();
+        		position -= backwardpush;
+        		if (position < 0) {
+        			position = 0;
+        		}
+        		System.out.println("BUT YOU HAVE BEEN PUSHED BACK BY A TRAP (-" + backwardpush / 2 + ") !!");
+        		
+        	} else {} 
+    	} while ( River.getRiver(position) == "C" || River.getRiver(position) == "#" );
+    	
+    	if (position > 198) {
+    		position = 198;
             if (boat == "1"){
                 System.out.println("Player 1 " + Player.getName() + " has won with " + (Player.getScore() + 1) + " moves !!");
                 Score.writeTextToFile("scores.txt", Player.getName() + " " + Integer.toString(Player.getScore() + 1) + "\n");
@@ -35,91 +62,16 @@ public class Boat {
                 System.out.println("Player 2 " + Player.getName() + " has won with " + (Player.getScore()) + " moves !!");
                 Score.writeTextToFile("scores.txt", Player.getName() + " " + Integer.toString(Player.getScore()) + "\n");
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 36ae1338824541e8dfa370861a797ddf2f009d03
             System.exit(0);
-
-        } else {
-        	if (River.getRiver(initialPosition) == boat) {
-        		River.setRiver(initialPosition, " ");
-        	} else {
-        		River.setRiver(initialPosition, opp);
-        	}
-        	
-        	if (River.getRiver(position) == "C") {
-        		River.setRiver(position, " ");
-                int forwardpush = Current.PushedForwardCurrents();
-                position += forwardpush;
-                
-                if (River.getRiver(position) == opp) {
-                	River.setRiver(position, "½");
-                } else if (River.getRiver(position) == " ") {
-                	River.setRiver(position, boat);
-                } else {
-                	//testing
-                }
-                System.out.println("AND YOU HAVE BEEN PUSHED FORWARD BY A CURRENT (+" + forwardpush / 2 + ") !!" + " Boat 1 is at box " + ((position / 2) + 1) + " !!");
-                
-        	} else if (River.getRiver(position) == "#") {
-        		if (position < 0) {
-        			position = 0;
-        		}
-        		River.setRiver(position, " ");
-        		int backwardpush = Trap.PushedBackwardTraps();
-        		position -= backwardpush;
-        		placement(position, boat, opp);
-        		// the <0 part
-        		System.out.println("BUT YOU HAVE BEEN PUSHED BACK BY A TRAP (-" + backwardpush / 2 + ") !!" + " Boat 1 is at box 1 as well!!");
-        		
-        	} else {
-        		placement(position, boat, opp);
-        		
-        	}
-                /*
-            if (River.getRiver(position) == "C") {
-
-                int forwardpush = Current.PushedForwardCurrents();
-                position += forwardpush;
-                
-                if (collide(position, forwardpush, opp)) {
-                	River.setRiver(position, boat);
-                } else {
-                	River.setRiver(position, "½");
-                }
-                
-                System.out.println("AND YOU HAVE BEEN PUSHED FORWARD BY A CURRENT (+" + forwardpush / 2 + ") !!" + " Boat 1 is at box " + ((position / 2) + 1) + " !!");
-
-            } else if (River.getRiver(position) == "#") {
-
-                int backwardpush = Trap.PushedBackwardTraps();
-                int tempposition = position;
-                position -= backwardpush;
-                
-                if (position < 0) {
-                	position = 0;
-                }
-                
-                if (collide(tempposition, 0, opp)) { //idk if the - here works
-                	River.setRiver(position, boat);
-                	
-                } else {
-                    River.setRiver(position, "½");
-                }
-                System.out.println("BUT YOU HAVE BEEN PUSHED BACK BY A TRAP (-" + backwardpush / 2 + ") !!" + " Boat 1 is at box 1 as well!!");
-
-            } else if (collide(position, roll, opp)) {
-            	River.setRiver(position, boat);
-            	System.out.println("Boat " + boat + " is at box " + ((position / 2) + 1) + " !!");
-                
-            } else {
-            	River.setRiver(position - roll, " ");
-            	System.out.println("Boat " + boat + " is at box " + ((position / 2) + 1) + " as well!!");
-            }
-            */
+    	}
+    	placement(position, boat, opp);
         System.out.println();
         River.printRiver();
-        }
-		return position;
-		
+        return position;
     }
 
     public static void placement(int position, String boat, String opp) {
@@ -131,19 +83,7 @@ public class Boat {
         	River.setRiver(position, boat);
         	System.out.println("Boat " + boat + " is at box " + ((position / 2) + 1) + " !!");
         } else {
-        	//testing
         }
-        
-        /* if ((River.getRiver(position - roll)) == "½") {
-        	River.setRiver(position - roll, opp);
-            return true;
-        } else if (River.getRiver(position) == opp){
-        	River.setRiver(position, "½");
-            return false;
-        } else {
-        	River.setRiver(position - roll, " ");
-            return true;
-        }*/
     }
 
     public static int RollTheDice(){
