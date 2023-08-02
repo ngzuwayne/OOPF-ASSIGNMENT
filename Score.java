@@ -77,7 +77,6 @@ public class Score {
         System.out.printf("Player %d, %s has won with %d moves !!\n",number, name, score);
         writeTextToFile("TopScore.txt", Integer.toString(score) + " | " +name + " | " + River.getDifficulty() + "\n");
         SortContentInFile();
-        System.exit(0);
     }
 
 
