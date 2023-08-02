@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class River {
     private static String[][] array = new String[3][200];
     private static String difficulty;
-	
-	public River() {
+
+    public River() {
         for (int i = 0; i < 200; i += 2) {
             array[0][i] = "=";
             array[0][i + 1] = "+";
@@ -14,8 +14,8 @@ public class River {
             array[2][i + 1] = "+";
         }
         array[1][0] = "½";
-	}
-	
+    }
+
     public static void printRiver() {
 
         for (int i = 0; i < 3; i++) {
@@ -50,11 +50,11 @@ public class River {
 
     public static void setDifficulty(String difficulty) {difficulty = difficulty;}
     public static String getDifficulty() {return difficulty;}
-	public static void setRiver (int position, String piece) {
-		array[1][position] = piece;
-	}
-	public static String getRiver (int position) {
-		return array[1][position]; 
-	}
+    public static void setRiver (int position, String piece) {
+        array[1][position] = piece;
+    }
+    public static String getRiver (int position) {
+        return array[1][position];
+    }
 
 }
