@@ -1,11 +1,12 @@
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Boat extends Main{
+public class Boat {
     static Random random = new Random();
 
-    public static int play (String boat, int position, String opp) {
+    public static int play (String boat, int position, String opp) throws IOException {
         Scanner presstoplay = new Scanner(System.in);
 
         System.out.printf("\nBOAT %s! IT'S YOUR TURN! \nPress ENTER to roll the dice: ", boat);
@@ -28,13 +29,12 @@ public class Boat extends Main{
 
             // still thinking how to represent names System.out.printf("Player %s, %s has won!!\n", boat, playername);
             if (boat == "1"){
-                System.out.println("Player 1 has won with " + (Player.getScore() + 1) + " moves !!");
-                Score.writeTextToFile(Integer.toString(Player.getScore() + 1));
+                System.out.println("Player 1 " + Player.getName() + " has won with " + (Player.getScore() + 1) + " moves !!");
+                Score.writeTextToFile("scores.txt", Player.getName() + " " + Integer.toString(Player.getScore() + 1) + "\n");
             } else if (boat == "2") {
-                System.out.println("Player 2 has won with " + (Player.getScore()) + " moves !!");
-                Score.writeTextToFile(Integer.toString(Player.getScore()));
+                System.out.println("Player 2 " + Player.getName() + " has won with " + (Player.getScore()) + " moves !!");
+                Score.writeTextToFile("scores.txt", Player.getName() + " " + Integer.toString(Player.getScore()) + "\n");
             }
-
 
             System.exit(0);
 

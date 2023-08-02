@@ -1,13 +1,14 @@
 import java.io.PrintWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
-public class Main extends Score{
-    public static void main(String[] args) {
+public class Main{
+    public static void main(String[] args) throws IOException{
 
         int score = 0;
 
-        createFile();
-        
+        Score.createFileIfNotExists("scores.txt");
+
         Scanner input = new Scanner(System.in);
         // debatable if needed| River river = new River();
         
@@ -20,8 +21,8 @@ public class Main extends Score{
         System.out.print("Please enter Player 2's name: ");
         String name2 = input.nextLine();
 
-        Player player1 = new Player(name1);
-        Player player2 = new Player(name2);
+        Player player1 = new Player();
+        Player player2 = new Player();
         
         River river = new River();
         Current.PrintCurrents();
@@ -29,8 +30,10 @@ public class Main extends Score{
         River.printRiver();
 
         while ((River.getRiver(198)) != "1" || (River.getRiver(198)) != "2") {
+            player1.setName(name1);
             player1.setPosition(Boat.play("1", player1.getPosition(), "2"));
             player1.setScore(score);
+            player2.setName(name2);
             player2.setPosition(Boat.play("2", player2.getPosition(), "1"));
             player2.setScore(score);
             score = score + 1;
