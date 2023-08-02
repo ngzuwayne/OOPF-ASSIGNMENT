@@ -27,8 +27,10 @@ public class Main{
         River.printRiver();
 
         while ((River.getRiver(198)) != "1" || (River.getRiver(198)) != "2") {
+        	
         	Player.setScore(1);
             player1.setPosition(Boat.play("1", player1.getPosition(), "2"));
+            
             if (player1.getPosition() == 198) {
             	winner = player1.getName();
             	break; 
