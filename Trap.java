@@ -5,14 +5,14 @@ public class Trap {
     private static int trapno;
     private static String difficulty;
     private static int backwardpush;
-    
+
     public static void PrintTraps() {
         difficulty = River.getDifficulty();
-        if (difficulty == "Hard"){
+        if (difficulty.equals("Hard")) {
             trapno = random.nextInt(11, 14);
-        } else if (difficulty == "Medium"){
+        } else if (difficulty.equals("Medium")) {
             trapno = random.nextInt(7, 10);
-        } else if (difficulty == "Easy"){
+        } else if (difficulty.equals("Easy")) {
             trapno = random.nextInt(3, 6);
         }
         int a = trapno;
@@ -21,7 +21,7 @@ public class Trap {
             River.setRiver(b, "#");
         }
     }
-    
+
     public static int WhereTraps() {
         int b = 1;
         while ((b % 2) != 0) {
@@ -29,15 +29,15 @@ public class Trap {
         }
         return b;
     }
-    
+
     public static int PushedBackwardTraps(){
         difficulty = River.getDifficulty();
-        if (difficulty == "Hard"){
-            backwardpush = (random.nextInt(10,15) * 2);
-        } else if (difficulty == "Medium"){
-            backwardpush = (random.nextInt(5,10) * 2);
-        } else if (difficulty == "Easy"){
-            backwardpush = (random.nextInt(1,5) * 2);
+        if (difficulty.equals("Hard")) {
+            backwardpush = (random.nextInt(10, 15) * 2);
+        } else if (difficulty.equals("Medium")) {
+            backwardpush = (random.nextInt(5, 10) * 2);
+        } else if (difficulty.equals("Easy")) {
+            backwardpush = (random.nextInt(1, 5) * 2);
         }
         return backwardpush;
     }
