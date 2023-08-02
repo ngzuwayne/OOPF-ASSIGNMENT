@@ -1,10 +1,1 @@
-13 | d | Easy
-15 | de | Easy
-15 | ds | Easy
-17 | vfr | Easy
-19 |  | Easy
-20 | de | Easy
-21 | ds | Easy
-22 | fr | Easy
-26 | ge | Easy
-60 | asd | Hard
+15 | tem | Easy
