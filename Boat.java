@@ -2,11 +2,12 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Boat {
+public class Boat extends Main{
     static Random random = new Random();
 
     public static int play (String boat, int position, String opp) {
         Scanner presstoplay = new Scanner(System.in);
+
         System.out.printf("\nBOAT %s! IT'S YOUR TURN! \nPress ENTER to roll the dice: ", boat);
         presstoplay.nextLine();
 
@@ -26,6 +27,14 @@ public class Boat {
             River.printRiver();
 
             // still thinking how to represent names System.out.printf("Player %s, %s has won!!\n", boat, playername);
+            if (boat == "1"){
+                System.out.println("Player 1 has won with " + (Player.getScore() + 1) + " moves !!");
+                Score.writeTextToFile(Integer.toString(Player.getScore() + 1));
+            } else if (boat == "2") {
+                System.out.println("Player 2 has won with " + (Player.getScore()) + " moves !!");
+                Score.writeTextToFile(Integer.toString(Player.getScore()));
+            }
+
 
             System.exit(0);
 

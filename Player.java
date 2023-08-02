@@ -1,11 +1,12 @@
 public class Player {
-    private int score;
+    private static int score;
     private int position;
     private String name;
 
 
     Player(String name){
         position = 0;
+        score = 0;
         this.name = name;
     }
     
@@ -17,7 +18,7 @@ public class Player {
     	this.score = score;
     }
     
-    public int getScore(){
+    public static int getScore(){
     	return score;
     }
 
