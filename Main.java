@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args) throws IOException{
 
-        int score = 0;
+        String winner = null;
 
         Score.createFileIfNotExists("scores.txt");
 
@@ -17,12 +17,9 @@ public class Main{
         River.findDifficulty();
 
         System.out.print("Please enter Player 1's name: ");
-        String name1 = input.nextLine();
+        Player player1 = new Player(input.nextLine());
         System.out.println("Please enter Player 2's name: ");
-        String name2 = input.nextLine();
-
-        Player player1 = new Player();
-        Player player2 = new Player();
+        Player player2 = new Player(input.nextLine());
         
         River river = new River();
         Current.PrintCurrents();
@@ -30,15 +27,15 @@ public class Main{
         River.printRiver();
 
         while ((River.getRiver(198)) != "1" || (River.getRiver(198)) != "2") {
-            player1.setName(name1);
+        	Player.setScore(1);
             player1.setPosition(Boat.play("1", player1.getPosition(), "2"));
-            player1.setScore(score);
-            if (player1.getPosition() == 198) {break;}
-            player2.setName(name2);
-            player2.setPosition(Boat.play("2", player2.getPosition(), "1"));
-            player2.setScore(score);
-            score = score + 1;
+            if (player1.getPosition() == 198) {
+            	winner = player1.getName();
+            	break; 
+            }
+            player2.setPosition(Boat.play("2", player2.getPosition(), "1")); 
+            winner = player2.getName();
         }
-        // I was thinking this is where the "YOU"VE WON" statement should be placed?? or should it be in the river/player class
+        Score.endGame(winner, Player.getScore());
     }
 }

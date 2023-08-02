@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.io.File;
 
 public class Score {
-
+	
     public static void createFileIfNotExists(String filename) throws IOException {
         // Create a file if it does not exist.
         File file = new File(filename);
@@ -17,9 +17,14 @@ public class Score {
         FileWriter writer = new FileWriter(filename, true);
         writer.write(text);
         writer.close();
+
     }
 
-
+    public static void endGame(String name, int score) throws IOException {
+        System.out.println("Player 1 " + name + " has won with " + (score + 1) + " moves !!");
+        writeTextToFile("scores.txt", name + " " + Integer.toString(score + 1) + "\n");
+        System.exit(0);
+    }
 
 
 }

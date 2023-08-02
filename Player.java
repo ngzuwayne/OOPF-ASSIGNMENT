@@ -1,20 +1,20 @@
 public class Player {
-    private static int score;
+    static private int score;
     private int position;
-    private static String name;
+    private String name;
 
 
-    Player(){
+    Player(String name){
         position = 0;
         score = 0;
-        setName(name);
+        this.name = name;
     }
     
     public String toString() {
-        return String.format(" won with " + score / 2 + " moves!!");
+        return String.format("%s won with " + score / 2 + " moves!!", name);
     }
 
-    public void setScore(int score) { this.score = score; }
+    public static void setScore(int turns) { score += turns; }
     
     public static int getScore(){
     	return score;
@@ -30,5 +30,5 @@ public class Player {
 
     public void setName(String name) { this.name = name; }
 
-    public static String getName() { return name; }
+    public String getName() { return name; }
 }

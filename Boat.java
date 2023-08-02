@@ -16,9 +16,9 @@ public class Boat {
         int roll = RollTheDice();
         int initialPosition = position;
         position +=roll;
-    	if (position > 198) {
-    		position = 198;
-    	}
+        if (position > 198) {
+			position = 198;
+		} 
         System.out.printf("\nYou rolled a %d ! ", roll / 2);
        
         // still thinking how to represent names System.out.printf("Player %s, %s has won!!\n", boat, playername);
@@ -31,15 +31,13 @@ public class Boat {
     	
     	System.out.println();
 
-        // still thinking how to represent names System.out.printf("Player %s, %s has won!!\n", boat, playername);
-
-    	do {
+    	do { 
         	if (River.getRiver(position) == "C") {
                 int forwardpush = Current.PushedForwardCurrents();
-                position += forwardpush;
+                position += forwardpush;   
                 if (position > 198) {
         			position = 198;
-        		}           
+        		} 
                 System.out.println("AND YOU HAVE BEEN PUSHED FORWARD BY A CURRENT (+" + forwardpush / 2 + ") !!");
                 
         	} else if (River.getRiver(position) == "#") {
@@ -52,19 +50,8 @@ public class Boat {
         		
         	} else {} 
     	} while ( River.getRiver(position) == "C" || River.getRiver(position) == "#" );
-    	
-    	if (position > 198) {
-    		position = 198;
-            if (boat == "1"){
-                System.out.println("Player 1 " + Player.getName() + " has won with " + (Player.getScore() + 1) + " moves !!");
-                Score.writeTextToFile("scores.txt", Player.getName() + " " + Integer.toString(Player.getScore() + 1) + "\n");
-            } else if (boat == "2") {
-                System.out.println("Player 2 " + Player.getName() + " has won with " + (Player.getScore()) + " moves !!");
-                Score.writeTextToFile("scores.txt", Player.getName() + " " + Integer.toString(Player.getScore()) + "\n");
-            }
 
-            System.exit(0);
-    	}
+
     	placement(position, boat, opp);
         River.printRiver();
         return position;
