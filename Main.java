@@ -10,7 +10,6 @@ public class Main{
         Score.createFileIfNotExists("scores.txt");
 
         Scanner input = new Scanner(System.in);
-        // debatable if needed| River river = new River();
         
         System.out.println("Welcome to Boat Race!\n");
 
