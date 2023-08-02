@@ -11,7 +11,7 @@ public class Boat {
 
         System.out.printf("\nBOAT %s! IT'S YOUR TURN! \nPress ENTER to roll the dice: ", boat);
         presstoplay.nextLine();
-
+        System.out.println("\n\n\n\n\n\n\n");
 
         int roll = RollTheDice();
         int initialPosition = position;
@@ -66,7 +66,6 @@ public class Boat {
             System.exit(0);
     	}
     	placement(position, boat, opp);
-        System.out.println();
         River.printRiver();
         return position;
     }
@@ -78,7 +77,7 @@ public class Boat {
         	
         } else if (River.getRiver(position) == " ") {
         	River.setRiver(position, boat);
-        	System.out.println("Boat " + boat + " is at box " + ((position / 2) + 1) + " !!");
+        	System.out.println("Boat " + boat + " is at box " + ((position / 2) + 1) + " !!\n");
         } else {
         }
     }
