@@ -3,7 +3,6 @@ public class Player {
     private int position;
     private String name;
 
-
     Player(String name){
         position = 0;
         score = 0;

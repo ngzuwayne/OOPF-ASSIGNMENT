@@ -18,7 +18,7 @@ public class Main{
 
         System.out.print("Please enter Player 1's name: ");
         Player player1 = new Player(input.nextLine());
-        System.out.println("Please enter Player 2's name: ");
+        System.out.print("Please enter Player 2's name: ");
         Player player2 = new Player(input.nextLine());
         
         River river = new River();
